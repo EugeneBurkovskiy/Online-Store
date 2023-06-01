@@ -1,5 +1,11 @@
+import Link from 'next/link';
+
 const Home = () => {
-  return <div className="text-black">Hello World</div>;
+  return (
+    <section>
+      <Link href={'catalog'}></Link>
+    </section>
+  );
 };
 
 export default Home;
