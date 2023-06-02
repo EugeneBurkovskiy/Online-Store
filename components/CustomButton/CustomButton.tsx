@@ -5,7 +5,11 @@ interface IProps {
 }
 
 const CustomButton: React.FC<IProps> = ({ title }) => {
-  return <button>{title}</button>;
+  return (
+    <button className="p-3 bg-black text-white font-semibold text-lg whitespace-nowrap hover:bg-gold duration-simple">
+      {title}
+    </button>
+  );
 };
 
 export default CustomButton;

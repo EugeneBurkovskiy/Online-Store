@@ -2,9 +2,9 @@ import Container from '../Container/Container';
 
 const Breadcrumbs = () => {
   return (
-    <nav className="w-full bg-lightGray py-3">
+    <nav className="w-full bg-lightGray py-10">
       <Container>
-        <ul className="text-3xl fw font-medium">
+        <ul className="text-4xl fw font-medium">
           <li>Catalog</li>
         </ul>
       </Container>

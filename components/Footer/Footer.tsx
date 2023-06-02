@@ -16,7 +16,7 @@ const Footer = () => {
             <p className="text-xl">My GitHub</p>
           </a>
           <p className="text-xl">© 2023 Online Store</p>
-          <Image priority src={RSIcon} alt="Cart" width={100} />
+          <Image priority src={RSIcon} alt="RSSchool" width={100} />
         </div>
       </Container>
     </footer>

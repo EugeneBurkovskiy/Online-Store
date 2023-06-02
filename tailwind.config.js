@@ -13,6 +13,11 @@ module.exports = {
       white: '#ffffff',
       gold: '#dcb14a',
     },
+    extend: {
+      transitionDuration: {
+        simple: '500ms',
+      },
+    },
   },
   plugins: [],
 };
