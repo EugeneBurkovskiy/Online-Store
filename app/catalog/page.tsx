@@ -1,6 +1,6 @@
-import CatalogFilters from '@/components/CatalogConfiguration/CatalogFilters/CatalogFilters';
-import CatalogSortBar from '@/components/CatalogConfiguration/CatalogSortBar/CatalogSortBar';
-import CatalogProductsList from '@/components/CatalogProducts/CatalogProductsList/CatalogProdustList';
+import CatalogFilters from '@/components/Catalog/CatalogConfiguration/CatalogFilters/CatalogFilters';
+import CatalogSortBar from '@/components/Catalog/CatalogConfiguration/CatalogSortBar/CatalogSortBar';
+import CatalogProductsList from '@/components/Catalog/CatalogProductsList/CatalogProdustList';
 
 const Catalog = () => {
   return (
