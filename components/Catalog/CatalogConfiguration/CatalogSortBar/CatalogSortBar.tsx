@@ -1,7 +1,7 @@
-import CustomSearch from '@/components/CustomSearch/CustomSearch';
 import CatalogSort from './CatalogSort/CatalogSort';
 import CatalogFound from './CatalogFound/CatalogFound';
 import CatalogGrid from './CatalogGrid/CatalogGrid';
+import { CatalogSearch } from './CatalogSearch/CatalogSearch';
 
 const CatalogSortBar = () => {
   return (
@@ -10,7 +10,7 @@ const CatalogSortBar = () => {
         <CatalogFound />
         <CatalogSort />
       </div>
-      <CustomSearch />
+      <CatalogSearch />
       <CatalogGrid />
     </div>
   );

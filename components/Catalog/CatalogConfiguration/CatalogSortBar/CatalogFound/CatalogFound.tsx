@@ -1,7 +1,15 @@
-interface IProps {}
+'use client';
 
-const CatalogFound: React.FC<IProps> = ({}) => {
-  return <div className="text-lg">Found: 40 of 40</div>;
+import { useProductsCount } from '@/store/productsCountStore';
+
+const CatalogFound = () => {
+  const { totalCount, foundCount } = useProductsCount();
+
+  return (
+    <div className="text-lg">
+      Found: {foundCount} of {totalCount}
+    </div>
+  );
 };
 
 export default CatalogFound;

@@ -1,8 +1,6 @@
 import CatalogGridDot from './CatalogGridDot/CatalogGridDot';
 
-interface IProps {}
-
-const CatalogGrid: React.FC<IProps> = ({}) => {
+const CatalogGrid = () => {
   return (
     <div className="flex gap-5">
       <div className="relative w-6 h-6 cursor-pointer group">

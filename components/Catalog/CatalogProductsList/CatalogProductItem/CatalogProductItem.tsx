@@ -17,6 +17,7 @@ const CatalogProductionItem: React.FC<IProps> = ({ product }) => {
           width={500}
           height={500}
           className="object-cover h-full"
+          loading="lazy"
         />
       </div>
       <h4 className="text-xl text-center text-black">{formatTitle(product.title)}</h4>

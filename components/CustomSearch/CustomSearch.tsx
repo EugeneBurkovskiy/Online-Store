@@ -1,9 +1,14 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import Image from 'next/image';
 import SearchIcon from '../../public/icons/search.svg';
 
-interface IProps {}
+interface IProps {
+  value: string;
+  onChange: Dispatch<SetStateAction<string>>;
+}
 
-const CustomSearch: React.FC<IProps> = ({}) => {
+const CustomSearch: React.FC<IProps> = ({ value, onChange }) => {
   return (
     <div>
       <label htmlFor="search" className="relative text-lg">
@@ -15,6 +20,8 @@ const CustomSearch: React.FC<IProps> = ({}) => {
           type="text"
           className="border-b border-black border-solid"
           placeholder="Serach"
+          onChange={(e) => onChange(e.target.value)}
+          value={value}
         />
       </label>
     </div>

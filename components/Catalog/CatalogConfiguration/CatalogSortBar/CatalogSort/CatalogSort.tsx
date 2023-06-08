@@ -1,6 +1,4 @@
-interface IProps {}
-
-const CatalogSort: React.FC<IProps> = ({}) => {
+const CatalogSort = () => {
   return (
     <select className="text-lg cursor-pointer">
       <option value="default">Sort by default</option>

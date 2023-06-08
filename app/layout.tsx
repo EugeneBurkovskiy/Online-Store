@@ -16,6 +16,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning={true}
         className={`${roboto.className} flex justify-center items-center flex-col min-h-screen`}
       >
         <Header />
