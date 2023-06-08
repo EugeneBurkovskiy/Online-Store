@@ -13,4 +13,4 @@ const CartSection = () => {
   );
 };
 
-export default CartSection;
+export { CartSection };

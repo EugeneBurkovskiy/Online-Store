@@ -7,7 +7,7 @@ interface IProps {
   product: IProduct;
 }
 
-const CatalogProductionItem: React.FC<IProps> = ({ product }) => {
+const CatalogProductItem = ({ product }: IProps) => {
   return (
     <div>
       <div className="h-[200px]">
@@ -27,4 +27,4 @@ const CatalogProductionItem: React.FC<IProps> = ({ product }) => {
   );
 };
 
-export default CatalogProductionItem;
+export { CatalogProductItem };

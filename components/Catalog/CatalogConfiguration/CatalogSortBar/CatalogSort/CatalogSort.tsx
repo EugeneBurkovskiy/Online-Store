@@ -1,7 +1,24 @@
+'use client';
+
+import { useQueryURLManager } from '@/hooks/useQueryURLManager';
+import { ChangeEvent } from 'react';
+
 const CatalogSort = () => {
+  const { setQueryObj, searchParamsObj } = useQueryURLManager();
+
+  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    const queryObj = {
+      name: 'sort',
+      value: e.currentTarget.value,
+    };
+    setQueryObj(queryObj);
+  };
+
+  const selectedValue = searchParamsObj.sort || '';
+
   return (
-    <select className="text-lg cursor-pointer">
-      <option value="default">Sort by default</option>
+    <select className="text-lg cursor-pointer" onChange={handleSelect} defaultValue={selectedValue}>
+      <option value="">Sort by default</option>
       <option value="price-ASC">Sort by price: low to high</option>
       <option value="price-DESC">Sort by price: high to low</option>
       <option value="rating-ASC">Sort by rating: low to high</option>
@@ -10,4 +27,4 @@ const CatalogSort = () => {
   );
 };
 
-export default CatalogSort;
+export { CatalogSort };

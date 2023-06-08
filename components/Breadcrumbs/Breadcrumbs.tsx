@@ -1,4 +1,4 @@
-import Container from '../Container/Container';
+import { Container } from '../Container/Container';
 
 const Breadcrumbs = () => {
   return (
@@ -12,4 +12,4 @@ const Breadcrumbs = () => {
   );
 };
 
-export default Breadcrumbs;
+export { Breadcrumbs };

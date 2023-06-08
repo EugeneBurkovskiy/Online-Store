@@ -1,4 +1,4 @@
-import CustomButton from '@/components/CustomButton/CustomButton';
+import { CustomButton } from '@/components/CustomButton/CustomButton';
 
 interface IProps {}
 
@@ -11,4 +11,4 @@ const CatalogFiltersBtn: React.FC<IProps> = ({}) => {
   );
 };
 
-export default CatalogFiltersBtn;
+export { CatalogFiltersBtn };

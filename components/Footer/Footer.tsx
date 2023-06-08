@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import githubIcon from '../../public/icons/github-logo.svg';
 import RSIcon from '../../public/icons//rs_school_js.svg';
-import Container from '../Container/Container';
+import { Container } from '../Container/Container';
 
 const Footer = () => {
   return (
@@ -23,4 +23,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export { Footer };

@@ -12,4 +12,4 @@ const CatalogFound = () => {
   );
 };
 
-export default CatalogFound;
+export { CatalogFound };

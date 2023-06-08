@@ -1,6 +1,6 @@
-import CatalogFilters from '@/components/Catalog/CatalogConfiguration/CatalogFilters/CatalogFilters';
-import CatalogSortBar from '@/components/Catalog/CatalogConfiguration/CatalogSortBar/CatalogSortBar';
-import CatalogProductsList from '@/components/Catalog/CatalogProductsList/CatalogProdustList';
+import { CatalogFilters } from '@/components/Catalog/CatalogConfiguration/CatalogFilters/CatalogFilters';
+import { CatalogSortBar } from '@/components/Catalog/CatalogConfiguration/CatalogSortBar/CatalogSortBar';
+import { CatalogProducts } from '@/components/Catalog/CatalogProductsList/CatalogProducts';
 
 const Catalog = () => {
   return (
@@ -8,7 +8,7 @@ const Catalog = () => {
       <CatalogFilters />
       <div className="flex w-full flex-col gap-10">
         <CatalogSortBar />
-        <CatalogProductsList />
+        <CatalogProducts />
       </div>
     </section>
   );

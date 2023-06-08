@@ -2,7 +2,7 @@ interface IProps {
   title: string;
 }
 
-const CustomCheckbox: React.FC<IProps> = ({ title }) => {
+const CustomCheckbox = ({ title }: IProps) => {
   return (
     <label className="flex gap-3 text-xl cursor-pointer">
       <input type="checkbox" className="cursor-pointer" />
@@ -11,4 +11,4 @@ const CustomCheckbox: React.FC<IProps> = ({ title }) => {
   );
 };
 
-export default CustomCheckbox;
+export { CustomCheckbox };

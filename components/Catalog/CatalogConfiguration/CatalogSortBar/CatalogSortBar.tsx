@@ -1,6 +1,6 @@
-import CatalogSort from './CatalogSort/CatalogSort';
-import CatalogFound from './CatalogFound/CatalogFound';
-import CatalogGrid from './CatalogGrid/CatalogGrid';
+import { CatalogSort } from './CatalogSort/CatalogSort';
+import { CatalogFound } from './CatalogFound/CatalogFound';
+import { CatalogGrid } from './CatalogGrid/CatalogGrid';
 import { CatalogSearch } from './CatalogSearch/CatalogSearch';
 
 const CatalogSortBar = () => {
@@ -16,4 +16,4 @@ const CatalogSortBar = () => {
   );
 };
 
-export default CatalogSortBar;
+export { CatalogSortBar };

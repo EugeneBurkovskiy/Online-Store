@@ -50,7 +50,7 @@ const useQueryURLManager = () => {
     router.push(newUrl);
   }, [newUrl, router]);
 
-  return { queryObj, setQueryObj, searchParamsObj };
+  return { setQueryObj, searchParamsObj };
 };
 
 export { useQueryURLManager };

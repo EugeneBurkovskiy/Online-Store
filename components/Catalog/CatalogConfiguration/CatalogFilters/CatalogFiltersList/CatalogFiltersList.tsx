@@ -1,11 +1,11 @@
-import CustomCheckbox from '@/components/CustomCheckbox/CustomCheckbox';
+import { CustomCheckbox } from '@/components/CustomCheckbox/CustomCheckbox';
 
 interface IProps {
   title: string;
   data: string[];
 }
 
-const CatalogFiltersList: React.FC<IProps> = ({ title, data }) => {
+const CatalogFiltersList = ({ title, data }: IProps) => {
   return (
     <div className="border-t border-solid py-3">
       <h3 className="text-lg font-semibold mb-3">{title}</h3>
@@ -20,4 +20,4 @@ const CatalogFiltersList: React.FC<IProps> = ({ title, data }) => {
   );
 };
 
-export default CatalogFiltersList;
+export { CatalogFiltersList };

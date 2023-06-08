@@ -12,7 +12,7 @@ export interface IProduct {
   images: string[];
 }
 
-export interface IAllProducts {
+export interface IAllProductsData {
   products: IProduct[];
   total: number;
   skip: number;

@@ -8,7 +8,7 @@ interface IProps {
   onChange: Dispatch<SetStateAction<string>>;
 }
 
-const CustomSearch: React.FC<IProps> = ({ value, onChange }) => {
+const CustomSearch = ({ value, onChange }: IProps) => {
   return (
     <div>
       <label htmlFor="search" className="relative text-lg">
@@ -28,4 +28,4 @@ const CustomSearch: React.FC<IProps> = ({ value, onChange }) => {
   );
 };
 
-export default CustomSearch;
+export { CustomSearch };

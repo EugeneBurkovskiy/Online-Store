@@ -1,6 +1,6 @@
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
-import Container from '../Container/Container';
-import CartSection from './CartSection/CartSection';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { Container } from '../Container/Container';
+import { CartSection } from './CartSection/CartSection';
 
 const Header = () => {
   return (
@@ -16,4 +16,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export { Header };
