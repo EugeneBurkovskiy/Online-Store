@@ -6,13 +6,21 @@ interface IQueryObj {
   value: string;
 }
 
+interface ISearchParamsObj {
+  search?: string;
+  sort?: string;
+  grid?: string;
+  category?: string;
+  brand?: string;
+}
+
 const useQueryURLManager = () => {
   const [queryObj, setQueryObj] = useState<IQueryObj>();
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  const searchParamsObj = useMemo(() => {
+  const searchParamsObj: ISearchParamsObj = useMemo(() => {
     const paramsObj = Object.fromEntries(searchParams.entries());
 
     if (queryObj) {
@@ -27,21 +35,13 @@ const useQueryURLManager = () => {
   }, [queryObj, searchParams]);
 
   const newUrl = useMemo(() => {
-    const searchParamsKeys = Object.keys(searchParamsObj);
+    const searchParamsEntries = Object.entries(searchParamsObj);
 
-    if (searchParamsKeys.length) {
+    if (searchParamsEntries.length) {
       let startUrl = `${pathname}?`;
-
-      const finalUrl = searchParamsKeys.reduce((url, item) => {
-        url += `${item}=${encodeURIComponent(searchParamsObj[item])}`;
-
-        if (searchParamsKeys[searchParamsKeys.length - 1] === item) {
-          return url;
-        }
-        return `${url}&`;
-      }, startUrl);
-
-      return finalUrl;
+      const formattedSearchParamsEntries = searchParamsEntries.map((item) => item.join('='));
+      const pathnameWithQueries = `${startUrl}${formattedSearchParamsEntries.join('&')}`;
+      return pathnameWithQueries;
     }
     return pathname;
   }, [pathname, searchParamsObj]);

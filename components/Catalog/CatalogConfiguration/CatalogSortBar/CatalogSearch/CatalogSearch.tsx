@@ -7,6 +7,7 @@ import { CustomSearch } from '@/components/CustomSearch/CustomSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 import { getAllProductsBySearch } from '@/service/getProductsBySearch';
+import { IAllProductsData, IProduct } from '@/types/types';
 
 const CatalogSearch = () => {
   const { mutate } = useSWR('products');
@@ -16,7 +17,7 @@ const CatalogSearch = () => {
 
   const handleSearch = useCallback(
     async (search: string) => {
-      const products = await getAllProductsBySearch(search);
+      const products: IAllProductsData = await getAllProductsBySearch(search);
       mutate(products);
     },
     [mutate],

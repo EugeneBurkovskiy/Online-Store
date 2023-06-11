@@ -6,7 +6,7 @@ import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 
 const CatalogGrid = () => {
   const { setQueryObj, searchParamsObj } = useQueryURLManager();
-  const [selectedGrid, setSelectedGrid] = useState(searchParamsObj.grid || '3');
+  const [selectedGrid, setSelectedGrid] = useState(searchParamsObj.grid || '4');
   const mode1 = '3';
   const mode2 = '4';
   const mode3 = '5';
@@ -24,7 +24,7 @@ const CatalogGrid = () => {
 
   useEffect(() => {
     if (!searchParamsObj.grid) {
-      setQueryObj({ name: 'grid', value: '3' });
+      setQueryObj({ name: 'grid', value: '4' });
     }
   }, [searchParamsObj.grid, setQueryObj]);
 

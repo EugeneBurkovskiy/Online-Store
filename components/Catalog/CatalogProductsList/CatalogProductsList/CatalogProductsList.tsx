@@ -1,11 +1,14 @@
-'use client';
-
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
+import useSWR from 'swr';
 
 import { CatalogProductItem } from '../CatalogProductItem/CatalogProductItem';
 import { IAllProductsData } from '@/types/types';
 import { useProductsCount } from '@/store/productsCountStore';
-import { sortAllProducts } from '@/utils/filters/sortAllProducts';
+import { Filter } from '@/utils/filters/Filter';
+import { useQueryURLManager } from '@/hooks/useQueryURLManager';
+import { getByCategory } from '@/service/getByCategory';
+import { compareProductsResponse } from '@/utils/compareProductsResponse';
+import { getAllProducts } from '@/service/getAllProducts';
 
 interface IProps {
   data: IAllProductsData;
@@ -13,6 +16,9 @@ interface IProps {
 
 const CatalogProductsList = ({ data }: IProps) => {
   const { setFoundCount, setTotalCount } = useProductsCount();
+  const { searchParamsObj } = useQueryURLManager();
+  const { sort, grid, category } = searchParamsObj;
+  const { mutate } = useSWR('products');
 
   const products = data.products;
 
@@ -23,9 +29,36 @@ const CatalogProductsList = ({ data }: IProps) => {
     }
   }, [data, products, setFoundCount, setTotalCount]);
 
+  useEffect(() => {
+    const handleCategory = async (category: string) => {
+      const categoryArr = category.split(',');
+      const response: IAllProductsData[] = await getByCategory(categoryArr);
+      const products = compareProductsResponse(response);
+      mutate(products);
+    };
+
+    if (category) {
+      handleCategory(category);
+    } else {
+      mutate(() => getAllProducts());
+    }
+  }, [category, mutate]);
+
+  const filteredProducts = useMemo(() => {
+    const filterCase = new Filter(products);
+    const newProductsList = filterCase.sortAllProducts(sort || '').filteredProducts;
+    return newProductsList;
+  }, [products, sort]);
+
   return (
-    <ul className="grid grid-cols-4 gap-6">
-      {products.map((item) => (
+    <ul
+      className={`grid ${
+        (grid === '3' && 'grid-cols-3') ||
+        (grid === '4' && 'grid-cols-4') ||
+        (grid === '5' && 'grid-cols-5')
+      } gap-6`}
+    >
+      {filteredProducts.map((item) => (
         <li key={item.id}>
           <CatalogProductItem product={item} />
         </li>
