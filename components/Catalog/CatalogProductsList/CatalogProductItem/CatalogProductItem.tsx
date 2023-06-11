@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { IProduct } from '@/types/types';
 import { formatRating } from '@/utils/formatRating';
 import { formatTitle } from '@/utils/formatTitle';
@@ -7,7 +9,7 @@ interface IProps {
   product: IProduct;
 }
 
-const CatalogProductItem = ({ product }: IProps) => {
+const CatalogProductItem = memo(({ product }: IProps) => {
   return (
     <div>
       <div className="h-[200px]">
@@ -24,6 +26,8 @@ const CatalogProductItem = ({ product }: IProps) => {
       <p className="text-2xl text-gray text-center">{product.price}$</p>
     </div>
   );
-};
+});
+
+CatalogProductItem.displayName = 'CatalogProductItem';
 
 export { CatalogProductItem };

@@ -12,7 +12,8 @@ import { IAllProductsData, IProduct } from '@/types/types';
 const CatalogSearch = () => {
   const { mutate } = useSWR('products');
   const { setQueryObj, searchParamsObj } = useQueryURLManager();
-  const [searchValue, setSearchValue] = useState(searchParamsObj.search || '');
+  const { search } = searchParamsObj;
+  const [searchValue, setSearchValue] = useState(search || '');
   const { debouncedValue } = useDebounce(searchValue);
 
   const handleSearch = useCallback(

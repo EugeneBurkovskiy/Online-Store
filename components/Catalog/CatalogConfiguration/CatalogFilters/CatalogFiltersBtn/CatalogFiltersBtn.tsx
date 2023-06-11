@@ -1,13 +1,11 @@
 import { ResetFiltersBtn } from './ResetFiltersBtn/ResetFiltersBtn';
 import { CopyFiltersBtn } from './CopyFiltersBtn/CopyFiltersBtn';
 
-interface IProps {}
-
-const CatalogFiltersBtn: React.FC<IProps> = ({}) => {
+const CatalogFiltersBtn = () => {
   return (
     <div className="flex gap-2">
-      <ResetFiltersBtn />
       <CopyFiltersBtn />
+      <ResetFiltersBtn />
     </div>
   );
 };

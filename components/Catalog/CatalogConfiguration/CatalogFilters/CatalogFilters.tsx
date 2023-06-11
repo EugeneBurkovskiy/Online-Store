@@ -21,7 +21,7 @@ const CatalogFilters = () => {
   );
 
   return (
-    <aside className="flex flex-col gap-5">
+    <aside className="flex flex-col gap-5 w-[320px]">
       <CatalogFiltersBtn />
       {data && (
         <CatalogFiltersList

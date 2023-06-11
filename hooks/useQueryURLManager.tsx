@@ -31,18 +31,19 @@ const useQueryURLManager = () => {
         delete paramsObj[queryObj.name];
       }
     }
+
     return paramsObj;
   }, [queryObj, searchParams]);
 
   const newUrl = useMemo(() => {
     const searchParamsEntries = Object.entries(searchParamsObj);
-
     if (searchParamsEntries.length) {
       let startUrl = `${pathname}?`;
       const formattedSearchParamsEntries = searchParamsEntries.map((item) => item.join('='));
       const pathnameWithQueries = `${startUrl}${formattedSearchParamsEntries.join('&')}`;
       return pathnameWithQueries;
     }
+
     return pathname;
   }, [pathname, searchParamsObj]);
 

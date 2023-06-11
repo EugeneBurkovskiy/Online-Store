@@ -1,10 +1,12 @@
 'use client';
 
-import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 import { ChangeEvent } from 'react';
+
+import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 
 const CatalogSort = () => {
   const { setQueryObj, searchParamsObj } = useQueryURLManager();
+  const { sort } = searchParamsObj;
 
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     const queryObj = {
@@ -14,7 +16,7 @@ const CatalogSort = () => {
     setQueryObj(queryObj);
   };
 
-  const selectedValue = searchParamsObj.sort || '';
+  const selectedValue = sort || '';
 
   return (
     <select className="text-lg cursor-pointer" onChange={handleSelect} defaultValue={selectedValue}>
