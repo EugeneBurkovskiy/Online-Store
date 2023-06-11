@@ -10,13 +10,15 @@ const Footer = () => {
         <div className="flex justify-between items-center">
           <a
             href="https://github.com/EugeneBurkovskiy"
-            className="flex gap-2 items-center cursor-pointer"
+            className="flex gap-2 items-center cursor-pointer sm:w-auto w-[50px]"
           >
             <Image priority src={githubIcon} alt="Cart" width={40} />
-            <p className="text-xl">My GitHub</p>
+            <p className="text-m sm:text-xl">My GitHub</p>
           </a>
-          <p className="text-xl">© 2023 Online Store</p>
-          <Image priority src={RSIcon} alt="RSSchool" width={100} />
+          <p className="text-m sm:text-xl">2023</p>
+          <a href="https://rs.school/" className="sm:w-auto w-[70px]">
+            <Image priority src={RSIcon} alt="RSSchool" width={100} />
+          </a>
         </div>
       </Container>
     </footer>

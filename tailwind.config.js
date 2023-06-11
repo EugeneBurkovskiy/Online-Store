@@ -17,6 +17,12 @@ module.exports = {
       transitionDuration: {
         simple: '500ms',
       },
+      screens: {
+        sm: '426px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+      },
     },
   },
   plugins: [],
