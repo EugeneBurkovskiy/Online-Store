@@ -55,7 +55,8 @@ const CatalogProductsList = ({ data }: IProps) => {
       className={`grid ${
         (grid === '3' && 'grid-cols-3') ||
         (grid === '4' && 'grid-cols-4') ||
-        (grid === '5' && 'grid-cols-5')
+        (grid === '5' && 'grid-cols-5') ||
+        'grid-cols-4'
       } gap-6`}
     >
       {filteredProducts.map((item) => (
