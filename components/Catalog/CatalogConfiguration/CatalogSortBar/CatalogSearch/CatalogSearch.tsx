@@ -7,7 +7,7 @@ import { CustomSearch } from '@/components/CustomSearch/CustomSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 import { getAllProductsBySearch } from '@/service/getProductsBySearch';
-import { IAllProductsData, IProduct } from '@/types/types';
+import { IAllProductsData } from '@/types/types';
 
 const CatalogSearch = () => {
   const { mutate } = useSWR('products');
@@ -25,12 +25,14 @@ const CatalogSearch = () => {
   );
 
   useEffect(() => {
-    const queryObj = {
-      name: 'search',
-      value: debouncedValue,
-    };
-    setQueryObj(queryObj);
-    handleSearch(debouncedValue);
+    if (debouncedValue) {
+      const queryObj = {
+        name: 'search',
+        value: debouncedValue,
+      };
+      setQueryObj(queryObj);
+      handleSearch(debouncedValue);
+    }
   }, [debouncedValue, handleSearch, setQueryObj]);
 
   return <CustomSearch value={searchValue} onChange={setSearchValue} />;

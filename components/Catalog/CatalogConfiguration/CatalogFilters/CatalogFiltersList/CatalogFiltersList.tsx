@@ -7,11 +7,10 @@ interface IProps {
   title: string;
   data: string[];
   queryParamName: string;
-  handleCheckbox: (queryParamName: string, queryParamValue: string) => void;
 }
 
-const CatalogFiltersList = ({ title, data, queryParamName, handleCheckbox }: IProps) => {
-  const { searchParamsObj } = useQueryURLManager();
+const CatalogFiltersList = ({ title, data, queryParamName }: IProps) => {
+  const { searchParamsObj, setQueryObj } = useQueryURLManager();
   const { category } = searchParamsObj;
   const [checkedValues, setCheckedValues] = useState<string[]>(category?.split(',') || []);
 
@@ -30,9 +29,11 @@ const CatalogFiltersList = ({ title, data, queryParamName, handleCheckbox }: IPr
   };
 
   useEffect(() => {
-    const queryString = checkedValues.join(',');
-    handleCheckbox(queryParamName, queryString);
-  }, [checkedValues, handleCheckbox, queryParamName]);
+    if (checkedValues.length) {
+      const queryString = checkedValues.join(',');
+      setQueryObj({ name: queryParamName, value: queryString });
+    }
+  }, [checkedValues, queryParamName, setQueryObj]);
 
   return (
     <div className="border-t border-solid py-3">

@@ -9,7 +9,7 @@ import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 import { getByCategory } from '@/service/getByCategory';
 import { compareProductsResponse } from '@/utils/compareProductsResponse';
 import { getAllProducts } from '@/service/getAllProducts';
-
+import { ECatalogGrid } from '../../CatalogConfiguration/CatalogSortBar/CatalogGrid/CatalogGrid';
 interface IProps {
   data: IAllProductsData;
 }
@@ -53,9 +53,9 @@ const CatalogProductsList = ({ data }: IProps) => {
   return (
     <ul
       className={`grid ${
-        (grid === '3' && 'grid-cols-3') ||
-        (grid === '4' && 'grid-cols-4') ||
-        (grid === '5' && 'grid-cols-5') ||
+        (grid === ECatalogGrid.mode1 && 'grid-cols-3') ||
+        (grid === ECatalogGrid.mode2 && 'grid-cols-4') ||
+        (grid === ECatalogGrid.mode3 && 'grid-cols-5') ||
         'grid-cols-4'
       } gap-6`}
     >
