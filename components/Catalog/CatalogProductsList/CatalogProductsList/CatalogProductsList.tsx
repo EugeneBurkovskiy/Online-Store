@@ -53,11 +53,11 @@ const CatalogProductsList = ({ data }: IProps) => {
   return (
     <ul
       className={`grid ${
-        (grid === ECatalogGrid.mode1 && 'grid-cols-3') ||
-        (grid === ECatalogGrid.mode2 && 'grid-cols-4') ||
-        (grid === ECatalogGrid.mode3 && 'grid-cols-5') ||
-        'grid-cols-4'
-      } gap-6`}
+        (grid === ECatalogGrid.mode1 && 'md:grid-cols-3') ||
+        (grid === ECatalogGrid.mode2 && 'md:grid-cols-4') ||
+        (grid === ECatalogGrid.mode3 && 'lg:grid-cols-5') ||
+        'md:grid-cols-3'
+      } gap-6 grid-cols-1 justify-items-center`}
     >
       {filteredProducts.map((item) => (
         <li key={item.id}>

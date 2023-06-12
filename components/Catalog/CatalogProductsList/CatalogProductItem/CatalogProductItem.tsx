@@ -11,8 +11,8 @@ interface IProps {
 
 const CatalogProductItem = memo(({ product }: IProps) => {
   return (
-    <div>
-      <div className="h-[200px]">
+    <div className="md:w-auto w-[300px]">
+      <div className="h-[300px] border border-black border-solid">
         <Image
           src={product.thumbnail}
           alt={product.title}

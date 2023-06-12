@@ -25,14 +25,12 @@ const CatalogSearch = () => {
   );
 
   useEffect(() => {
-    if (debouncedValue) {
-      const queryObj = {
-        name: 'search',
-        value: debouncedValue,
-      };
-      setQueryObj(queryObj);
-      handleSearch(debouncedValue);
-    }
+    const queryObj = {
+      name: 'search',
+      value: debouncedValue,
+    };
+    setQueryObj(queryObj);
+    handleSearch(debouncedValue);
   }, [debouncedValue, handleSearch, setQueryObj]);
 
   return <CustomSearch value={searchValue} onChange={setSearchValue} />;

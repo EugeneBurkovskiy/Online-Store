@@ -13,7 +13,7 @@ export enum ECatalogGrid {
 
 const CatalogGrid = () => {
   const { setQueryObj, searchParamsObj } = useQueryURLManager();
-  const [selectedGrid, setSelectedGrid] = useState(searchParamsObj.grid || '4');
+  const [selectedGrid, setSelectedGrid] = useState(searchParamsObj.grid || ECatalogGrid.mode1);
 
   const handleClick = (gridValue: string) => {
     if (selectedGrid !== gridValue) {
@@ -28,12 +28,12 @@ const CatalogGrid = () => {
 
   useEffect(() => {
     if (!searchParamsObj.grid) {
-      setQueryObj({ name: 'grid', value: '4' });
+      setQueryObj({ name: 'grid', value: ECatalogGrid.mode1 });
     }
   }, [searchParamsObj.grid, setQueryObj]);
 
   return (
-    <div className="flex gap-5">
+    <div className="gap-5 md:flex hidden">
       <div
         className={`relative w-6 h-6 cursor-pointer group`}
         onClick={() => handleClick(ECatalogGrid.mode1)}
@@ -67,7 +67,7 @@ const CatalogGrid = () => {
         />
       </div>
       <div
-        className="relative w-6 h-6 cursor-pointer group"
+        className="relative w-6 h-6 cursor-pointer group lg:block hidden"
         onClick={() => handleClick(ECatalogGrid.mode3)}
       >
         <CatalogGridDot positionConfig={'top-0'} active={selectedGrid === ECatalogGrid.mode3} />

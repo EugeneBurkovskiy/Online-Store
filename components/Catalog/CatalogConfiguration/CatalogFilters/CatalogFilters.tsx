@@ -10,10 +10,10 @@ const CatalogFilters = () => {
   const { data } = useSWR('categories', getAllCategories);
 
   return (
-    <aside className="flex flex-col gap-5 w-[320px]">
+    <div className="flex flex-col gap-5 w-[280px] bg-white">
       <CatalogFiltersBtn />
       {data && <CatalogFiltersList title="Category" data={data} queryParamName="category" />}
-    </aside>
+    </div>
   );
 };
 

@@ -5,7 +5,9 @@ import { CatalogProducts } from '@/components/Catalog/CatalogProductsList/Catalo
 const Catalog = () => {
   return (
     <section className="py-3 flex gap-5 items-start">
-      <CatalogFilters />
+      <aside className="lg:block hidden">
+        <CatalogFilters />
+      </aside>
       <div className="flex w-full flex-col gap-10">
         <CatalogSortBar />
         <CatalogProducts />

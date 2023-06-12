@@ -3,7 +3,7 @@ import { CopyFiltersBtn } from './CopyFiltersBtn/CopyFiltersBtn';
 
 const CatalogFiltersBtn = () => {
   return (
-    <div className="flex gap-2">
+    <div className="flex justify-between">
       <CopyFiltersBtn />
       <ResetFiltersBtn />
     </div>
