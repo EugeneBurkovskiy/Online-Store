@@ -1,4 +1,4 @@
-import { Container } from '../Container/Container';
+import { Container } from '../UI/Container/Container';
 
 const Breadcrumbs = () => {
   return (

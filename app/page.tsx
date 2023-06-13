@@ -1,5 +1,5 @@
-import { Container } from '@/components/Container/Container';
-import { CustomButton } from '@/components/CustomButton/CustomButton';
+import { Container } from '@/components/UI/Container/Container';
+import { CustomButton } from '@/components/UI/CustomButton/CustomButton';
 import Link from 'next/link';
 
 const Home = () => {

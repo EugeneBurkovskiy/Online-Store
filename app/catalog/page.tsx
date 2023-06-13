@@ -1,6 +1,9 @@
+'use client';
+
 import { CatalogFilters } from '@/components/Catalog/CatalogConfiguration/CatalogFilters/CatalogFilters';
 import { CatalogSortBar } from '@/components/Catalog/CatalogConfiguration/CatalogSortBar/CatalogSortBar';
 import { CatalogProducts } from '@/components/Catalog/CatalogProductsList/CatalogProducts';
+import { ScrollUpBtn } from '@/components/UI/ScrollUpBtn/ScrollUpBtn';
 
 const Catalog = () => {
   return (
@@ -12,6 +15,7 @@ const Catalog = () => {
         <CatalogSortBar />
         <CatalogProducts />
       </div>
+      <ScrollUpBtn />
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import { CustomButton } from '@/components/CustomButton/CustomButton';
+import { CustomButton } from '@/components/UI/CustomButton/CustomButton';
 
 const ResetFiltersBtn = () => {
   const handleReset = () => {

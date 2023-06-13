@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 import Image from 'next/image';
-import SearchIcon from '../../public/icons/search.svg';
+import SearchIcon from '../../../public/icons/search.svg';
 
 interface IProps {
   value: string;

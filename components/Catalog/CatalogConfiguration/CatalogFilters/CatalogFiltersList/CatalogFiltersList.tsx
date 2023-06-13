@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { CustomCheckbox } from '@/components/CustomCheckbox/CustomCheckbox';
+import { CustomCheckbox } from '@/components/UI/CustomCheckbox/CustomCheckbox';
 import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 
 interface IProps {
@@ -29,10 +29,8 @@ const CatalogFiltersList = ({ title, data, queryParamName }: IProps) => {
   };
 
   useEffect(() => {
-    if (checkedValues.length) {
-      const queryString = checkedValues.join(',');
-      setQueryObj({ name: queryParamName, value: queryString });
-    }
+    const queryString = checkedValues.join(',');
+    setQueryObj({ name: queryParamName, value: queryString });
   }, [checkedValues, queryParamName, setQueryObj]);
 
   return (

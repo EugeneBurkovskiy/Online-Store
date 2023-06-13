@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import useSWR from 'swr';
 
-import { CustomSearch } from '@/components/CustomSearch/CustomSearch';
+import { CustomSearch } from '@/components/UI/CustomSearch/CustomSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useQueryURLManager } from '@/hooks/useQueryURLManager';
 import { getAllProductsBySearch } from '@/service/getProductsBySearch';

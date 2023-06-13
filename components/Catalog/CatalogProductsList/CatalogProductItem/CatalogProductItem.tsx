@@ -11,8 +11,8 @@ interface IProps {
 
 const CatalogProductItem = memo(({ product }: IProps) => {
   return (
-    <div className="md:w-auto w-[300px]">
-      <div className="h-[300px] border border-black border-solid">
+    <div className="md:w-auto w-[270px] cursor-pointer group">
+      <div className="h-[300px] border border-black border-solid md:group-hover:border-gold duration-500">
         <Image
           src={product.thumbnail}
           alt={product.title}
@@ -21,9 +21,15 @@ const CatalogProductItem = memo(({ product }: IProps) => {
           className="object-cover h-full"
         />
       </div>
-      <h4 className="text-xl text-center text-black">{formatTitle(product.title)}</h4>
-      <p className="text-xl text-center text-black">{formatRating(product.rating)}</p>
-      <p className="text-2xl text-gray text-center">{product.price}$</p>
+      <h4 className="text-xl text-center text-black md:group-hover:text-gold duration-500">
+        {formatTitle(product.title)}
+      </h4>
+      <p className="text-xl text-center text-black md:group-hover:text-gold duration-500">
+        {formatRating(product.rating)}
+      </p>
+      <p className="text-2xl text-gray text-center md:group-hover:text-gold duration-500">
+        {product.price}$
+      </p>
     </div>
   );
 });

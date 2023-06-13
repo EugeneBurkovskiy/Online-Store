@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { CustomButton } from '@/components/CustomButton/CustomButton';
+import { CustomButton } from '@/components/UI/CustomButton/CustomButton';
 
 const CopyFiltersBtn = () => {
   const [copySuccess, setCopySuccess] = useState(false);

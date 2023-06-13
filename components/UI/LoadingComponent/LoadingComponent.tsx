@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import LoadingIcon from '../../public/icons/clock.svg';
+import LoadingIcon from '../../../public/icons/clock.svg';
 
 const LoadingComponent = () => {
   return (
