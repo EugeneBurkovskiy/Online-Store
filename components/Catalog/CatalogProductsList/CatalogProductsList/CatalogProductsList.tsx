@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import useSWR from 'swr';
 
 import { CatalogProductItem } from '../CatalogProductItem/CatalogProductItem';
@@ -15,19 +15,20 @@ interface IProps {
 }
 
 const CatalogProductsList = ({ data }: IProps) => {
-  const { setFoundCount, setTotalCount } = useProductsCount();
   const { searchParamsObj } = useQueryURLManager();
   const { sort, grid, category } = searchParamsObj;
   const { mutate } = useSWR('products');
 
-  const products = data.products;
+  const prevCategoryValue = useRef<string[]>([]);
+  const { products } = data;
 
   useEffect(() => {
-    if (products) {
-      setFoundCount(products.length);
-      setTotalCount(data.total);
-    }
-  }, [data, products, setFoundCount, setTotalCount]);
+    return () => {
+      if (category) {
+        prevCategoryValue.current = [...category.split(',')];
+      }
+    };
+  }, [category]);
 
   useEffect(() => {
     const handleCategory = async (category: string) => {
@@ -37,10 +38,14 @@ const CatalogProductsList = ({ data }: IProps) => {
       mutate(products);
     };
 
-    if (category) {
-      handleCategory(category);
-    } else {
+    if (!category && !prevCategoryValue.current.length) {
+      return;
+    }
+
+    if (!category && prevCategoryValue.current.length) {
       mutate(() => getAllProducts());
+    } else if (category) {
+      handleCategory(category);
     }
   }, [category, mutate]);
 

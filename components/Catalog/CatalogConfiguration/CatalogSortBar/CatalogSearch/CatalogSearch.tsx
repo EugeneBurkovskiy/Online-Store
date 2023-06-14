@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
 
 import { CustomSearch } from '@/components/UI/CustomSearch/CustomSearch';
@@ -16,6 +16,8 @@ const CatalogSearch = () => {
   const [searchValue, setSearchValue] = useState(search || '');
   const { debouncedValue } = useDebounce(searchValue);
 
+  const prevSearchValue = useRef('');
+
   const handleSearch = useCallback(
     async (search: string) => {
       const products: IAllProductsData = await getAllProductsBySearch(search);
@@ -24,7 +26,20 @@ const CatalogSearch = () => {
     [mutate],
   );
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.currentTarget.value);
+  };
+
   useEffect(() => {
+    return () => {
+      prevSearchValue.current = searchValue;
+    };
+  }, [searchValue]);
+
+  useEffect(() => {
+    if (!prevSearchValue.current && !debouncedValue) {
+      return;
+    }
     const queryObj = {
       name: 'search',
       value: debouncedValue,
@@ -33,7 +48,7 @@ const CatalogSearch = () => {
     handleSearch(debouncedValue);
   }, [debouncedValue, handleSearch, setQueryObj]);
 
-  return <CustomSearch value={searchValue} onChange={setSearchValue} />;
+  return <CustomSearch value={searchValue} onChange={handleChange} />;
 };
 
 export { CatalogSearch };

@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { ChangeEvent } from 'react';
 
 import Image from 'next/image';
 import SearchIcon from '../../../public/icons/search.svg';
 
 interface IProps {
   value: string;
-  onChange: Dispatch<SetStateAction<string>>;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CustomSearch = ({ value, onChange }: IProps) => {
@@ -20,7 +20,7 @@ const CustomSearch = ({ value, onChange }: IProps) => {
           type="text"
           className="border-b border-black border-solid"
           placeholder="Serach"
-          onChange={(e) => onChange(e.target.value)}
+          onChange={onChange}
           value={value}
         />
       </label>
