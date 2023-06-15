@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import scrollUpIcon from '../../../public/icons/scrollUp.svg';
 import Image from 'next/image';

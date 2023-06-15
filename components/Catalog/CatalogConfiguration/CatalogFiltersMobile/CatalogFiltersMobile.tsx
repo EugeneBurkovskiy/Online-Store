@@ -28,7 +28,7 @@ const CatalogFiltersMobile = () => {
         <Image src={filterIcon} alt="filter" width={40} onClick={handleClick} />
       </button>
       <aside
-        className={`fixed h-full bg-white top-0 p-4 z-50 flex flex-col gap-2 duration-500 ${
+        className={`fixed h-full bg-white top-0 p-4 z-50 flex flex-col gap-2 duration-simple ${
           show ? 'left-0' : 'left-[-100%]'
         }`}
       >

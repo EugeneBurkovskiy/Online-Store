@@ -13,7 +13,9 @@ import { ErrorText } from '@/components/UI/ErrorText/ErrorText';
 
 const CatalogProducts = () => {
   const { foundCount, totalCount, setFoundCount, setTotalCount } = useProductsCount();
-  const { data, error, mutate } = useSWR<IAllProductsData>('products', () => getAllProducts());
+  const { data, error, mutate, isValidating } = useSWR<IAllProductsData>('products', () =>
+    getAllProducts(),
+  );
 
   useEffect(() => {
     if (data && data.products) {
@@ -30,6 +32,7 @@ const CatalogProducts = () => {
   };
 
   return (
+    (isValidating && <LoadingComponent />) ||
     (data?.products.length && (
       <div className="flex flex-col justify-center items-center gap-5">
         <CatalogProductsList data={data} />
@@ -37,7 +40,7 @@ const CatalogProducts = () => {
       </div>
     )) ||
     (error && <ErrorText />) ||
-    (!data?.products.length && <ErrorText text="Nothing Found" />) || <LoadingComponent />
+    (!data?.products.length && <ErrorText text="Nothing Found" />)
   );
 };
 

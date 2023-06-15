@@ -1,5 +1,3 @@
-'use client';
-
 import { CatalogFilters } from '@/components/Catalog/CatalogConfiguration/CatalogFilters/CatalogFilters';
 import { CatalogSortBar } from '@/components/Catalog/CatalogConfiguration/CatalogSortBar/CatalogSortBar';
 import { CatalogProducts } from '@/components/Catalog/CatalogProductsList/CatalogProducts';

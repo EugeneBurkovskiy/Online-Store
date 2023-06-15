@@ -1,6 +1,7 @@
+import Link from 'next/link';
+
 import { Container } from '@/components/UI/Container/Container';
 import { CustomButton } from '@/components/UI/CustomButton/CustomButton';
-import Link from 'next/link';
 
 const Home = () => {
   return (

@@ -4,14 +4,24 @@ import { IProduct } from '@/types/types';
 import { formatRating } from '@/utils/formatRating';
 import { formatTitle } from '@/utils/formatTitle';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface IProps {
   product: IProduct;
 }
 
 const CatalogProductItem = memo(({ product }: IProps) => {
+  const router = useRouter();
+
+  const handleClick = (id: number) => {
+    router.push(`/catalog/${id}`);
+  };
+
   return (
-    <div className="md:w-auto w-[270px] cursor-pointer group">
+    <div
+      className="md:w-auto w-[270px] cursor-pointer group"
+      onClick={() => handleClick(product.id)}
+    >
       <div className="h-[300px] border border-black border-solid md:group-hover:border-gold duration-500">
         <Image
           src={product.thumbnail}
