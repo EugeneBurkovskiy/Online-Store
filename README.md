@@ -4,7 +4,7 @@ An online store with products, filters, search, sorting, a form with validation,
 
 ## Deploy
 
-[Online Store](online-store-flax.vercel.app)
+[online-store-flax.vercel.app](https://online-store-flax.vercel.app/)
 
 ## API
 
