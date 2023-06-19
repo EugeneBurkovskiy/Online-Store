@@ -18,6 +18,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         suppressHydrationWarning={true}
         className={`${roboto.className} flex justify-center items-center flex-col min-h-screen`}
       >
+        <div id="root-overlay"></div>
         <Header />
         <main className="grow w-full">{children}</main>
         <Footer />

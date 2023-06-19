@@ -3,7 +3,7 @@ import { Container } from '@/components/UI/Container/Container';
 
 export const metadata = {
   title: 'Catalog',
-  description: 'Catalog with available products',
+  description: 'Product',
 };
 
 const CatalogLayout = ({ children }: { children: React.ReactNode }) => {

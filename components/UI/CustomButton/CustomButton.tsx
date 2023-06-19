@@ -5,13 +5,19 @@ interface IProps {
   className?: string;
   onClick?: () => void;
   children?: ReactNode;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
-const CustomButton = ({ title, className, children, onClick }: IProps) => {
+const CustomButton = ({ title, className, children, type, disabled = false, onClick }: IProps) => {
   return (
     <button
-      className={`p-3 bg-black text-white font-semibold text-lg whitespace-nowrap md:hover:bg-gold duration-simple ${className}`}
+      className={`p-3 text-white font-semibold text-lg whitespace-nowrap duration-simple ${
+        disabled ? 'bg-gray' : 'bg-black md:hover:bg-gold'
+      } ${className}`}
       onClick={onClick}
+      type={type}
+      disabled={disabled}
     >
       {title || children}
     </button>

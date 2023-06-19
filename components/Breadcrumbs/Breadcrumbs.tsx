@@ -11,9 +11,9 @@ const Breadcrumbs = () => {
   const pathname = usePathname();
   const breadcrumbsPathArr = createBreadcrumbsLinks(pathname);
   return (
-    <nav className="w-full bg-lightGray py-10">
+    <nav className="w-full bg-lightGray md:py-10 py-5">
       <Container>
-        <ul className="text-4xl fw font-medium flex gap-3">
+        <ul className="md:text-4xl fw font-medium flex gap-3 text-2xl">
           {breadcrumbsPathArr.map((item) => (
             <Fragment key={item[1]}>
               <li>

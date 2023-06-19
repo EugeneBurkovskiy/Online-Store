@@ -12,6 +12,8 @@ module.exports = {
       lightGray: '#f4f5f7',
       white: '#ffffff',
       gold: '#dcb14a',
+      red: '#FF2E2E',
+      overlay: 'rgb(0, 0, 0, 0.5)',
     },
     extend: {
       transitionDuration: {

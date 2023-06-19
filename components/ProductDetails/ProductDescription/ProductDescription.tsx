@@ -4,9 +4,10 @@ import { formatRating } from '@/utils/formatRating';
 
 interface IProps {
   productData: IProduct;
+  handleModal: () => void;
 }
 
-const ProductDescription = ({ productData }: IProps) => {
+const ProductDescription = ({ productData, handleModal }: IProps) => {
   const { title, description, price, rating, stock, brand, category } = productData;
   return (
     <section className="flex flex-col gap-2 text-xl">
@@ -16,7 +17,7 @@ const ProductDescription = ({ productData }: IProps) => {
       <p>{description}</p>
       <div className="flex flex-col gap-2 md:w-[170px]">
         <CustomButton title="Add to cart" />
-        <CustomButton title="Buy now" />
+        <CustomButton title="Buy now" onClick={handleModal} />
       </div>
       <p>Stock: {stock} left</p>
       <p>Brand: {brand}</p>

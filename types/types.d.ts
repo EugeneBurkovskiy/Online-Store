@@ -18,3 +18,14 @@ export interface IAllProductsData {
   skip: number;
   limit: number;
 }
+
+export interface IRegister {
+  name: string;
+  surname: string;
+  phone: string;
+  adress: string;
+  email: string;
+  card: string;
+  date: string;
+  cvv: string;
+}

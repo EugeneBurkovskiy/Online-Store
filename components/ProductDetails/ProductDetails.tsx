@@ -1,18 +1,48 @@
+'use client';
+
+import { useState } from 'react';
+import useSWR from 'swr';
+
 import { IProduct } from '@/types/types';
+
 import { ProductDescription } from './ProductDescription/ProductDescription';
 import { ProductImages } from './ProductImages/ProductImages';
+import { ErrorText } from '../UI/ErrorText/ErrorText';
+import { LoadingComponent } from '../UI/LoadingComponent/LoadingComponent';
+import { getSingleProduct } from '@/service/getSingleProduct';
+import { Form } from '../Form/Form';
+import { Overlay } from '../UI/Overlay/Overlay';
 
 interface IProps {
-  productData: IProduct;
+  productId: string;
 }
 
-const ProductDetails = ({ productData }: IProps) => {
-  const { images } = productData;
+const ProductDetails = ({ productId }: IProps) => {
+  const { data, error, isValidating } = useSWR<IProduct | null>(
+    'product',
+    () => getSingleProduct(productId),
+    { revalidateOnFocus: false },
+  );
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   return (
-    <article className="flex gap-8 py-5 md:flex-row flex-col">
-      <ProductImages images={images} />
-      <ProductDescription productData={productData} />
-    </article>
+    (isValidating && <LoadingComponent />) ||
+    (data && (
+      <>
+        <article className="flex gap-8 py-5 md:flex-row flex-col">
+          <ProductImages images={data.images} />
+          <ProductDescription productData={data} handleModal={handleShowModal} />
+        </article>
+        <Overlay show={showModal} setShow={setShowModal}>
+          <Form handleModal={handleShowModal} />
+        </Overlay>
+      </>
+    )) ||
+    (error && <ErrorText />)
   );
 };
 

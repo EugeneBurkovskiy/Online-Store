@@ -1,14 +1,4 @@
-'use client';
-
-import useSWR from 'swr';
-import { useEffect } from 'react';
-
 import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
-import { getSingleProduct } from '@/service/getSingleProduct';
-import { LoadingComponent } from '@/components/UI/LoadingComponent/LoadingComponent';
-import { ErrorText } from '@/components/UI/ErrorText/ErrorText';
-
-import { IProduct } from '@/types/types';
 
 interface IProps {
   params: {
@@ -16,16 +6,15 @@ interface IProps {
   };
 }
 
-const ProductDetailsPage = ({ params: { productId } }: IProps) => {
-  const { data, error, isValidating } = useSWR<IProduct | null>('product', () =>
-    getSingleProduct(productId),
-  );
+export function generateMetadata({ params: { productId } }: IProps) {
+  return {
+    title: `Product - ${productId}`,
+    description: `The ${productId} details`,
+  };
+}
 
-  return (
-    (isValidating && <LoadingComponent />) ||
-    (data && <ProductDetails productData={data} />) ||
-    (error && <ErrorText />)
-  );
+const ProductDetailsPage = ({ params: { productId } }: IProps) => {
+  return <ProductDetails productId={productId} />;
 };
 
 export default ProductDetailsPage;
