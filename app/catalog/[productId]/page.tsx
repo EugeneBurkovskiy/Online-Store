@@ -1,4 +1,6 @@
 import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
+import { getSingleProduct } from '@/service/getSingleProduct';
+import { IProduct } from '@/types/types';
 
 interface IProps {
   params: {
@@ -6,10 +8,11 @@ interface IProps {
   };
 }
 
-export function generateMetadata({ params: { productId } }: IProps) {
+export async function generateMetadata({ params: { productId } }: IProps) {
+  const product: IProduct = await getSingleProduct(productId);
   return {
-    title: `Product - ${productId}`,
-    description: `The ${productId} details`,
+    title: product.title,
+    description: product.description,
   };
 }
 
