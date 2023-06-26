@@ -16,7 +16,7 @@ const Breadcrumbs = () => {
         <ul className="md:text-4xl fw font-medium flex gap-3 text-2xl">
           {breadcrumbsPathArr.map((item) => (
             <Fragment key={item[1]}>
-              <li>
+              <li className="md:hover:text-gold duration-simple">
                 <Link href={item[1]}>{item[0]}</Link>
               </li>
               <span>/</span>

@@ -12,6 +12,10 @@ export interface IProduct {
   images: string[];
 }
 
+export interface ICartProduct {
+  id: number;
+}
+
 export interface IAllProductsData {
   products: IProduct[];
   total: number;
