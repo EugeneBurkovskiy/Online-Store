@@ -12,7 +12,7 @@ interface IProps {
 const CustomButton = ({ title, className, children, type, disabled = false, onClick }: IProps) => {
   return (
     <button
-      className={`p-3 text-white font-semibold text-lg whitespace-nowrap duration-simple ${
+      className={`p-3 flex justify-center items-center text-white font-semibold text-lg whitespace-nowrap duration-simple ${
         disabled ? 'bg-gray' : 'bg-black md:hover:bg-gold'
       } ${className}`}
       onClick={onClick}

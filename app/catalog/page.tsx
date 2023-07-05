@@ -5,7 +5,7 @@ import { ScrollUpBtn } from '@/components/UI/ScrollUpBtn/ScrollUpBtn';
 
 const Catalog = () => {
   return (
-    <section className="py-3 flex gap-5 items-start">
+    <section className="py-5 flex gap-5 items-start">
       <aside className="lg:block hidden">
         <CatalogFilters />
       </aside>

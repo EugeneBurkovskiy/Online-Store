@@ -10,7 +10,7 @@ const Benefits = () => {
   return (
     <Container>
       <h2 className="text-center text-2xl sm:text-3xl md:ext-4xl font-bold">Benefits</h2>
-      <ul className="flex flex-wrap xl:justify-between justify-center gap-10 xl:gap-2">
+      <ul className="flex flex-wrap justify-center gap-10">
         <BenefitsItem
           src={catalogImage}
           alt="catalog"

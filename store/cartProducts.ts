@@ -1,23 +1,39 @@
+import { ICartProduct } from '@/types/types';
 import { create } from 'zustand';
 
+export enum ECartOperations {
+  add = 'add',
+  subtract = 'substact',
+}
 interface ICartProducts {
-  cartProducts: number[];
-  cartProductsTotalPrice: number;
-  addCartProducts: (count: number) => void;
-  incrCartProductsTotalPrice: (count: number) => void;
+  cartProducts: ICartProduct[];
+  addCartProduct: (product: ICartProduct) => void;
+  handleCartProductCount: (id: number, operation: ECartOperations) => void;
+  removeCartProduct: (id: number) => void;
 }
 
 const useCartProducts = create<ICartProducts>((set) => ({
   cartProducts: [],
-  cartProductsTotalPrice: 0,
-  addCartProducts: (count) =>
+  addCartProduct: (product) =>
     set((state) => ({
-      cartProducts: [...state.cartProducts, count],
+      cartProducts: [...state.cartProducts, product],
     })),
-  incrCartProductsTotalPrice: (count) =>
-    set((state) => ({
-      cartProductsTotalPrice: (state.cartProductsTotalPrice += count),
-    })),
+  handleCartProductCount: (id, operation) =>
+    set((state) => {
+      const currentCartProduct = state.cartProducts.find((item) => item.id === id);
+      if (currentCartProduct) {
+        if (operation === ECartOperations.add) currentCartProduct.count += 1;
+        else if (operation === ECartOperations.subtract) currentCartProduct.count -= 1;
+      }
+      return {
+        cartProducts: [...state.cartProducts],
+      };
+    }),
+  removeCartProduct: (id) =>
+    set((state) => {
+      const filteredCardProducts = state.cartProducts.filter((item) => item.id !== id);
+      return { cartProducts: [...filteredCardProducts] };
+    }),
 }));
 
 export { useCartProducts };

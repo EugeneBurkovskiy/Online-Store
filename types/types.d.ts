@@ -14,6 +14,8 @@ export interface IProduct {
 
 export interface ICartProduct {
   id: number;
+  price: number;
+  count: number;
 }
 
 export interface IAllProductsData {
