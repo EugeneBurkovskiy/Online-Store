@@ -6,6 +6,8 @@ import { getProductsArr } from '@/service/getProductsArr';
 import { useCartProducts } from '@/store/cartProducts';
 import { IProduct } from '@/types/types';
 import { ProductItem } from './ProductItem/ProductItem';
+import { LoadingComponent } from '@/components/UI/LoadingComponent/LoadingComponent';
+import { ErrorText } from '@/components/UI/ErrorText/ErrorText';
 
 const ProductsList = () => {
   const { cartProducts } = useCartProducts();
@@ -18,13 +20,17 @@ const ProductsList = () => {
     [cartProducts, data],
   );
 
-  return synchronizedData ? (
-    <ul>
-      {synchronizedData.map((item) => (
-        <ProductItem product={item} key={item.id} />
-      ))}
-    </ul>
-  ) : null;
+  return (
+    (isValidating && <LoadingComponent />) ||
+    (synchronizedData && (
+      <ul>
+        {synchronizedData.map((item) => (
+          <ProductItem product={item} key={item.id} />
+        ))}
+      </ul>
+    )) ||
+    (error && <ErrorText />)
+  );
 };
 
 export { ProductsList };
